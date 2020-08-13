@@ -15,6 +15,10 @@
 		EF1D790C24E42EEA00B77AB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1D790A24E42EEA00B77AB2 /* LaunchScreen.storyboard */; };
 		EF1D791724E42EEA00B77AB2 /* CocktailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D791624E42EEA00B77AB2 /* CocktailTests.swift */; };
 		EF1D792224E42EEA00B77AB2 /* CocktailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D792124E42EEA00B77AB2 /* CocktailUITests.swift */; };
+		EFED089B24E584F6000CEA99 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED089924E584F6000CEA99 /* CategoryCell.swift */; };
+		EFED089C24E584F6000CEA99 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFED089A24E584F6000CEA99 /* CategoryCell.xib */; };
+		EFED089F24E58676000CEA99 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED089E24E58676000CEA99 /* CategoriesController.swift */; };
+		EFED08A124E586A2000CEA99 /* CategoriesView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFED08A024E586A2000CEA99 /* CategoriesView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		EF1D791D24E42EEA00B77AB2 /* CocktailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1D792124E42EEA00B77AB2 /* CocktailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailUITests.swift; sourceTree = "<group>"; };
 		EF1D792324E42EEA00B77AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFED089924E584F6000CEA99 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		EFED089A24E584F6000CEA99 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		EFED089E24E58676000CEA99 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
+		EFED08A024E586A2000CEA99 /* CategoriesView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategoriesView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,8 @@
 		EF1D78FE24E42EE900B77AB2 /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
+				EFED089D24E5865E000CEA99 /* Controller */,
+				EFED089824E584C6000CEA99 /* View */,
 				EF1D78FF24E42EE900B77AB2 /* AppDelegate.swift */,
 				EF1D790124E42EE900B77AB2 /* SceneDelegate.swift */,
 				EF1D790324E42EE900B77AB2 /* ViewController.swift */,
@@ -128,6 +138,24 @@
 			path = CocktailUITests;
 			sourceTree = "<group>";
 		};
+		EFED089824E584C6000CEA99 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFED089924E584F6000CEA99 /* CategoryCell.swift */,
+				EFED089A24E584F6000CEA99 /* CategoryCell.xib */,
+				EFED08A024E586A2000CEA99 /* CategoriesView.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EFED089D24E5865E000CEA99 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFED089E24E58676000CEA99 /* CategoriesController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +166,7 @@
 				EF1D78F824E42EE900B77AB2 /* Sources */,
 				EF1D78F924E42EE900B77AB2 /* Frameworks */,
 				EF1D78FA24E42EE900B77AB2 /* Resources */,
+				EF0BAB0024E59BE0008412DC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -232,9 +261,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFED08A124E586A2000CEA99 /* CategoriesView.storyboard in Resources */,
 				EF1D790C24E42EEA00B77AB2 /* LaunchScreen.storyboard in Resources */,
 				EF1D790924E42EEA00B77AB2 /* Assets.xcassets in Resources */,
 				EF1D790724E42EE900B77AB2 /* Main.storyboard in Resources */,
+				EFED089C24E584F6000CEA99 /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +285,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EF0BAB0024E59BE0008412DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: Swiftlint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EF1D78F824E42EE900B77AB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -262,6 +313,8 @@
 				EF1D790424E42EE900B77AB2 /* ViewController.swift in Sources */,
 				EF1D790024E42EE900B77AB2 /* AppDelegate.swift in Sources */,
 				EF1D790224E42EE900B77AB2 /* SceneDelegate.swift in Sources */,
+				EFED089F24E58676000CEA99 /* CategoriesController.swift in Sources */,
+				EFED089B24E584F6000CEA99 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
