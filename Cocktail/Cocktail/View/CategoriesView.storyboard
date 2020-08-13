@@ -10,7 +10,7 @@
         <!--Categories Controller-->
         <scene sceneID="9Iz-BA-w5x">
             <objects>
-                <collectionViewController id="h6H-d6-11y" customClass="CategoriesController" customModule="Cocktail" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CategoriesView" id="h6H-d6-11y" customClass="CategoriesController" customModule="Cocktail" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RTE-Du-kG0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,6 +51,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pyH-6y-uni">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.77254901960784317" green="0.15686274509803921" blue="0.23921568627450979" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="h6H-d6-11y" kind="relationship" relationship="rootViewController" id="bHY-dR-Gts"/>
