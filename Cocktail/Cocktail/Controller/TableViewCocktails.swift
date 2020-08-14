@@ -10,10 +10,12 @@ import Foundation
 import UIKit
 
 class TableViewCocktails: UITableViewController {
+    var isFavourited = false
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarApearence()
         setSearchBar()
+        updateRighBarButton(isFavourite: isFavourited)
     }
     // MARK: - Table view data source
     let searchController = UISearchController(searchResultsController: nil)
@@ -27,11 +29,11 @@ class TableViewCocktails: UITableViewController {
     var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty
     }
-    //define the number of sections
+    // MARK: - set number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    // blocks delete action if the user is searching
+    // MARK: - blocks delete action if the user is searching
     override func tableView(_ tableView: UITableView, editingStyleForRowAt
         indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if isFiltering {
@@ -40,7 +42,7 @@ class TableViewCocktails: UITableViewController {
             return UITableViewCell.EditingStyle.delete
         }
     }
-    // swipe to delete
+    // MARK: - swipe to delete
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
                             forRowAt indexPath: IndexPath) {
@@ -51,14 +53,14 @@ class TableViewCocktails: UITableViewController {
             tableView.endUpdates()
         }
     }
-    // return the number of filtered results to fill the table view
+    // MARK: - return the number of filtered results to fill the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredCocktails.count
         }
         return cocktails.count
     }
-    // shows the full table view or the search results if user is searching
+    // MARK: - shows the full table view or the search results if user is searching
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         if let cellUnwrapped = cell as? TableViewCell {
@@ -73,39 +75,42 @@ class TableViewCocktails: UITableViewController {
         }
         return cell
     }
-    // when user taps the plus button he will be redirect to another screen
+    // MARK: - the heart shape of the button will change to fill
     @objc func heartButtonTapped(button sender: UIBarButtonItem) {
-        // add to favorites(persistence) and change the heart to fill
-//        if let image = UIImage(named: "heartRed") {
-//            sender.setImage(image, for: .selected)
-//          }
+        self.isFavourited = !self.isFavourited
+        if self.isFavourited {
+            // save with file manager
+            self.favourite()
+        } else {
+            // delete with file manager
+            self.unfavourite()
+        }
+        self.updateRighBarButton(isFavourite: self.isFavourited)
     }
-    // search for the inserted text in the textfield of searchBar and reload tableview data showing the results
+    // MARK: - search for the inserted text and reload tableview data showing the results
     func filterContentForSearchText(_ searchText: String) {
         filteredCocktails = cocktails.filter { cocktail -> Bool in
             return cocktail.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }
-    // when user selects a row he will be redirected to another screen
+    // MARK: - when user selects a row he will be redirected to another screen
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "next", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "nextCont") as UIViewController
-//        self.navigationController?.pushViewController(vc, animated: true)
+        //        let storyboard = UIStoryboard(name: "next", bundle: nil)
+        //        let vc = storyboard.instantiateViewController(withIdentifier: "nextCont") as UIViewController
+        //        self.navigationController?.pushViewController(vc, animated: true)
         print("go to information screen")
     }
 }
-
 extension TableViewCocktails: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
 }
-
 private extension TableViewCocktails {
     private func navBarApearence() {
-        navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = false
         navigationController?.navigationBar.prefersLargeTitles = true
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.backgroundColor = #colorLiteral(red: 1, green: 0.8289034963, blue: 0.4533876181, alpha: 1)
@@ -120,5 +125,22 @@ private extension TableViewCocktails {
         navigationItem.searchController = searchController
         navigationController?.navigationItem.hidesSearchBarWhenScrolling = true
         UITextField.appearance().backgroundColor = #colorLiteral(red: 0.5411764706, green: 0.1490196078, blue: 0.01960784314, alpha: 0.1193011558)
+    }
+    func updateRighBarButton(isFavourite: Bool) {
+        let heartButton = UIButton(type: .custom)
+        heartButton.addTarget(self, action: #selector(heartButtonTapped(button:)),
+                              for: .touchUpInside)
+        if isFavourite {
+            heartButton.setImage(UIImage(named: "heartRed"), for: .normal)
+        } else {
+            heartButton.setImage(UIImage(named: "heartEmpty"), for: .normal)
+        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: heartButton)
+    }
+    func favourite() {
+        //save with file manager
+    }
+    func unfavourite() {
+        //delete with file manager
     }
 }

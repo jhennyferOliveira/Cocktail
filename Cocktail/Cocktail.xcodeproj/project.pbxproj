@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF0BAB0224E5E3ED008412DC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0BAB0124E5E3ED008412DC /* TableViewCell.swift */; };
+		EF0BAB0424E5E431008412DC /* TableViewCocktails.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0BAB0324E5E431008412DC /* TableViewCocktails.swift */; };
+		EF0BAB0724E5E9CE008412DC /* TableViewCocktailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0BAB0624E5E9CE008412DC /* TableViewCocktailsView.storyboard */; };
 		EF1D790024E42EE900B77AB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D78FF24E42EE900B77AB2 /* AppDelegate.swift */; };
 		EF1D790224E42EE900B77AB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D790124E42EE900B77AB2 /* SceneDelegate.swift */; };
 		EF1D790424E42EE900B77AB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D790324E42EE900B77AB2 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF0BAB0124E5E3ED008412DC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		EF0BAB0324E5E431008412DC /* TableViewCocktails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCocktails.swift; sourceTree = "<group>"; };
+		EF0BAB0624E5E9CE008412DC /* TableViewCocktailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewCocktailsView.storyboard; sourceTree = "<group>"; };
 		EF1D78FC24E42EE900B77AB2 /* Cocktail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocktail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1D78FF24E42EE900B77AB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF1D790124E42EE900B77AB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,7 @@
 				EFED089924E584F6000CEA99 /* CategoryCell.swift */,
 				EFED089A24E584F6000CEA99 /* CategoryCell.xib */,
 				EFED08A024E586A2000CEA99 /* CategoriesView.storyboard */,
+				EF0BAB0624E5E9CE008412DC /* TableViewCocktailsView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				EFED089E24E58676000CEA99 /* CategoriesController.swift */,
+				EF0BAB0124E5E3ED008412DC /* TableViewCell.swift */,
+				EF0BAB0324E5E431008412DC /* TableViewCocktails.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 				EF1D790924E42EEA00B77AB2 /* Assets.xcassets in Resources */,
 				EF1D790724E42EE900B77AB2 /* Main.storyboard in Resources */,
 				EFED089C24E584F6000CEA99 /* CategoryCell.xib in Resources */,
+				EF0BAB0724E5E9CE008412DC /* TableViewCocktailsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +323,8 @@
 				EF1D790424E42EE900B77AB2 /* ViewController.swift in Sources */,
 				EF1D790024E42EE900B77AB2 /* AppDelegate.swift in Sources */,
 				EF1D790224E42EE900B77AB2 /* SceneDelegate.swift in Sources */,
+				EF0BAB0424E5E431008412DC /* TableViewCocktails.swift in Sources */,
+				EF0BAB0224E5E3ED008412DC /* TableViewCell.swift in Sources */,
 				EFED089F24E58676000CEA99 /* CategoriesController.swift in Sources */,
 				EFED089B24E584F6000CEA99 /* CategoryCell.swift in Sources */,
 			);
