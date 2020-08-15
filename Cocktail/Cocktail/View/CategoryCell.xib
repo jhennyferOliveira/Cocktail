@@ -16,20 +16,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="138" height="134"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-GP-yY9">
-                        <rect key="frame" x="4" y="10" width="134" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KJ-GP-yY9">
+                        <rect key="frame" x="0.0" y="10" width="138" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="138" id="kIx-ce-bhL"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-a6-7YY">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Cb-a6-7YY">
                         <rect key="frame" x="0.0" y="40" width="138" height="102"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="102" id="aNM-Rh-Njk"/>
+                            <constraint firstAttribute="width" constant="138" id="if7-zb-kjB"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="0.79607843140000001" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1KJ-GP-yY9" secondAttribute="trailing" id="754-yn-dmP"/>
+                <constraint firstItem="1KJ-GP-yY9" firstAttribute="top" secondItem="usX-d0-4wa" secondAttribute="top" constant="10" id="7qv-tM-mCG"/>
+                <constraint firstItem="1KJ-GP-yY9" firstAttribute="leading" secondItem="usX-d0-4wa" secondAttribute="leading" id="Gvr-Kk-0I3"/>
+                <constraint firstItem="1Cb-a6-7YY" firstAttribute="leading" secondItem="usX-d0-4wa" secondAttribute="leading" id="jt0-lb-9zt"/>
+                <constraint firstItem="1Cb-a6-7YY" firstAttribute="top" secondItem="1KJ-GP-yY9" secondAttribute="bottom" constant="9" id="qux-g8-ayd"/>
+                <constraint firstAttribute="bottom" secondItem="1Cb-a6-7YY" secondAttribute="bottom" constant="-8" id="t6f-3D-VA0"/>
+                <constraint firstAttribute="trailing" secondItem="1Cb-a6-7YY" secondAttribute="trailing" id="w09-pe-AI0"/>
+                <constraint firstItem="1Cb-a6-7YY" firstAttribute="top" secondItem="1KJ-GP-yY9" secondAttribute="bottom" constant="9" id="zGU-vc-5kf"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="05s-aF-aw3"/>
             <connections>
                 <outlet property="cardImage" destination="1Cb-a6-7YY" id="dZV-rU-PA2"/>
