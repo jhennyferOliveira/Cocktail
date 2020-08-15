@@ -10,12 +10,10 @@ import Foundation
 import UIKit
 
 class TableViewCocktails: UITableViewController {
-    var isFavourited = false
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarApearence()
         setSearchBar()
-        updateRighBarButton(isFavourite: isFavourited)
     }
     // MARK: - Table view data source
     let searchController = UISearchController(searchResultsController: nil)
@@ -75,18 +73,6 @@ class TableViewCocktails: UITableViewController {
         }
         return cell
     }
-    // MARK: - the heart shape of the button will change to fill
-    @objc func heartButtonTapped(button sender: UIBarButtonItem) {
-        self.isFavourited = !self.isFavourited
-        if self.isFavourited {
-            // save with file manager
-            self.favourite()
-        } else {
-            // delete with file manager
-            self.unfavourite()
-        }
-        self.updateRighBarButton(isFavourite: self.isFavourited)
-    }
     // MARK: - search for the inserted text and reload tableview data showing the results
     func filterContentForSearchText(_ searchText: String) {
         filteredCocktails = cocktails.filter { cocktail -> Bool in
@@ -96,10 +82,9 @@ class TableViewCocktails: UITableViewController {
     }
     // MARK: - when user selects a row he will be redirected to another screen
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        let storyboard = UIStoryboard(name: "next", bundle: nil)
-        //        let vc = storyboard.instantiateViewController(withIdentifier: "nextCont") as UIViewController
-        //        self.navigationController?.pushViewController(vc, animated: true)
-        print("go to information screen")
+                let storyboard = UIStoryboard(name: "RecipeView", bundle: nil)
+                let next = storyboard.instantiateViewController(withIdentifier: "RecipeView") as UIViewController
+                self.navigationController?.pushViewController(next, animated: true)
     }
 }
 extension TableViewCocktails: UISearchResultsUpdating {
@@ -125,22 +110,5 @@ private extension TableViewCocktails {
         navigationItem.searchController = searchController
         navigationController?.navigationItem.hidesSearchBarWhenScrolling = true
         UITextField.appearance().backgroundColor = #colorLiteral(red: 0.5411764706, green: 0.1490196078, blue: 0.01960784314, alpha: 0.1193011558)
-    }
-    func updateRighBarButton(isFavourite: Bool) {
-        let heartButton = UIButton(type: .custom)
-        heartButton.addTarget(self, action: #selector(heartButtonTapped(button:)),
-                              for: .touchUpInside)
-        if isFavourite {
-            heartButton.setImage(UIImage(named: "heartRed"), for: .normal)
-        } else {
-            heartButton.setImage(UIImage(named: "heartEmpty"), for: .normal)
-        }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: heartButton)
-    }
-    func favourite() {
-        //save with file manager
-    }
-    func unfavourite() {
-        //delete with file manager
     }
 }
