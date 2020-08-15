@@ -20,6 +20,8 @@
 		EF1D790C24E42EEA00B77AB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1D790A24E42EEA00B77AB2 /* LaunchScreen.storyboard */; };
 		EF1D791724E42EEA00B77AB2 /* CocktailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D791624E42EEA00B77AB2 /* CocktailTests.swift */; };
 		EF1D792224E42EEA00B77AB2 /* CocktailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D792124E42EEA00B77AB2 /* CocktailUITests.swift */; };
+		EFDC905C24E84C7300992AC0 /* LuckCocktailView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDC905B24E84C7300992AC0 /* LuckCocktailView.storyboard */; };
+		EFDC905E24E84ED800992AC0 /* LuckCocktailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDC905D24E84ED800992AC0 /* LuckCocktailController.swift */; };
 		EFED089B24E584F6000CEA99 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED089924E584F6000CEA99 /* CategoryCell.swift */; };
 		EFED089C24E584F6000CEA99 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFED089A24E584F6000CEA99 /* CategoryCell.xib */; };
 		EFED089F24E58676000CEA99 /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFED089E24E58676000CEA99 /* CategoriesController.swift */; };
@@ -63,6 +65,8 @@
 		EF1D791D24E42EEA00B77AB2 /* CocktailUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CocktailUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1D792124E42EEA00B77AB2 /* CocktailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailUITests.swift; sourceTree = "<group>"; };
 		EF1D792324E42EEA00B77AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDC905B24E84C7300992AC0 /* LuckCocktailView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LuckCocktailView.storyboard; sourceTree = "<group>"; };
+		EFDC905D24E84ED800992AC0 /* LuckCocktailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckCocktailController.swift; sourceTree = "<group>"; };
 		EFED089924E584F6000CEA99 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		EFED089A24E584F6000CEA99 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		EFED089E24E58676000CEA99 /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				EFED089A24E584F6000CEA99 /* CategoryCell.xib */,
 				EFED08A024E586A2000CEA99 /* CategoriesView.storyboard */,
 				EF0BAB0624E5E9CE008412DC /* TableViewCocktailsView.storyboard */,
+				EFDC905B24E84C7300992AC0 /* LuckCocktailView.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				EF0BAB0124E5E3ED008412DC /* TableViewCell.swift */,
 				EF0BAB0324E5E431008412DC /* TableViewCocktails.swift */,
 				EF0BAB0A24E6CD81008412DC /* RecipeController.swift */,
+				EFDC905D24E84ED800992AC0 /* LuckCocktailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 				EF1D790924E42EEA00B77AB2 /* Assets.xcassets in Resources */,
 				EF1D790724E42EE900B77AB2 /* Main.storyboard in Resources */,
 				EFED089C24E584F6000CEA99 /* CategoryCell.xib in Resources */,
+				EFDC905C24E84C7300992AC0 /* LuckCocktailView.storyboard in Resources */,
 				EF0BAB0724E5E9CE008412DC /* TableViewCocktailsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +340,7 @@
 				EF0BAB0424E5E431008412DC /* TableViewCocktails.swift in Sources */,
 				EF0BAB0224E5E3ED008412DC /* TableViewCell.swift in Sources */,
 				EF0BAB0B24E6CD81008412DC /* RecipeController.swift in Sources */,
+				EFDC905E24E84ED800992AC0 /* LuckCocktailController.swift in Sources */,
 				EFED089F24E58676000CEA99 /* CategoriesController.swift in Sources */,
 				EFED089B24E584F6000CEA99 /* CategoryCell.swift in Sources */,
 			);
