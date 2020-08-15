@@ -40,17 +40,7 @@ class TableViewCocktails: UITableViewController {
             return UITableViewCell.EditingStyle.delete
         }
     }
-    // MARK: - swipe to delete
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCell.EditingStyle,
-                            forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            cocktails.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.endUpdates()
-        }
-    }
+    
     // MARK: - return the number of filtered results to fill the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
