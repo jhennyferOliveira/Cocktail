@@ -51,7 +51,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pyH-6y-uni">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.77254901960784317" green="0.15686274509803921" blue="0.23921568627450979" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.6215339089922336" green="0.2430151542576596" blue="0.27130694562779334" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="h6H-d6-11y" kind="relationship" relationship="rootViewController" id="bHY-dR-Gts"/>
