@@ -10,13 +10,25 @@ import UIKit
 
 class LuckCocktailController: UIViewController {
 
+    @IBOutlet weak var text: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    let tapRec = UITapGestureRecognizer()
     override func viewDidLoad() {
         super.viewDidLoad()
+        tapRec.addTarget(self, action: #selector(tappedImage))
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(tapRec)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.backgroundColor = #colorLiteral(red: 1, green: 0.8289034963, blue: 0.4533876181, alpha: 1)
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationItem.title = "Luck Cocktail"
 
         // Do any additional setup after loading the view.
     }
-    
-
+    @objc func tappedImage() {
+        print("image tapped")
+    }
     /*
     // MARK: - Navigation
 
