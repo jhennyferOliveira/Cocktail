@@ -39,8 +39,7 @@ class TableViewCocktails: UITableViewController {
         } else {
             return UITableViewCell.EditingStyle.delete
         }
-    }
-    
+}    
     // MARK: - return the number of filtered results to fill the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
