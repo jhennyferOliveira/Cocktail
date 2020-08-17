@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bvy-fW-qhd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YmU-IR-7l7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite Controller-->
+        <!--Favorite-->
         <scene sceneID="Odc-vf-7hX">
             <objects>
-                <tableViewController id="bvy-fW-qhd" customClass="FavoriteController" customModule="Cocktail" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Favorite" id="bvy-fW-qhd" customClass="FavoriteController" customModule="Cocktail" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xPO-6F-Sbg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,10 +46,33 @@
                             <outlet property="delegate" destination="bvy-fW-qhd" id="Dho-Hm-Yp7"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heartPink" selectedImage="heartRed" id="oyB-b2-4O5"/>
+                    <navigationItem key="navigationItem" id="R1I-uN-1Fg"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nun-zH-ihf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="132"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8GV-W8-DQU">
+            <objects>
+                <navigationController id="YmU-IR-7l7" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vmf-Fc-w3A">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bvy-fW-qhd" kind="relationship" relationship="rootViewController" id="CIg-pb-kHK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="muL-kf-iC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-601" y="127"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="heartPink" width="25" height="24"/>
+        <image name="heartRed" width="25" height="24"/>
+    </resources>
 </document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mxp-T9-nga">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Luck Cocktail Controller-->
+        <!--Luck Cocktail-->
         <scene sceneID="vCr-qB-LQr">
             <objects>
                 <viewController storyboardIdentifier="LuckCocktail" id="Qbu-nj-aUl" customClass="LuckCocktailController" customModule="Cocktail" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,35 +16,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the glass to get your Luck Cocktail " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXA-4X-kIS">
-                                <rect key="frame" x="45" y="634" width="325" height="104"/>
+                                <rect key="frame" x="45" y="641" width="325" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="325" id="lsO-aZ-Kif"/>
-                                    <constraint firstAttribute="height" constant="104" id="ltq-oW-xex"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coquetel" translatesAutoresizingMaskIntoConstraints="NO" id="jUn-Ce-KVt">
-                                <rect key="frame" x="77" y="215" width="280" height="342"/>
+                                <rect key="frame" x="124" y="305.5" width="167" height="216"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="342" id="CfJ-zC-S9S"/>
-                                    <constraint firstAttribute="width" constant="280" id="SjF-k4-xlE"/>
+                                    <constraint firstAttribute="height" constant="216" id="CfJ-zC-S9S"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="167" id="M2M-zW-PcZ"/>
+                                    <constraint firstAttribute="width" constant="167" id="SjF-k4-xlE"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="216" id="fIa-5n-ZiJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="zXA-4X-kIS" firstAttribute="top" secondItem="jUn-Ce-KVt" secondAttribute="bottom" constant="77" id="CtC-bl-Vdr"/>
-                            <constraint firstItem="3kI-0c-KLa" firstAttribute="trailing" secondItem="jUn-Ce-KVt" secondAttribute="trailing" constant="57" id="Fou-tX-YxA"/>
-                            <constraint firstItem="jUn-Ce-KVt" firstAttribute="top" secondItem="3kI-0c-KLa" secondAttribute="top" constant="171" id="TDD-Qd-OHo"/>
-                            <constraint firstItem="jUn-Ce-KVt" firstAttribute="leading" secondItem="3kI-0c-KLa" secondAttribute="leading" constant="77" id="Wpt-8S-DLh"/>
+                            <constraint firstItem="zXA-4X-kIS" firstAttribute="top" secondItem="jUn-Ce-KVt" secondAttribute="bottom" constant="119.5" id="CtC-bl-Vdr"/>
+                            <constraint firstItem="3kI-0c-KLa" firstAttribute="trailing" secondItem="jUn-Ce-KVt" secondAttribute="trailing" constant="123" id="Fou-tX-YxA"/>
+                            <constraint firstItem="jUn-Ce-KVt" firstAttribute="leading" secondItem="3kI-0c-KLa" secondAttribute="leading" constant="124" id="Wpt-8S-DLh"/>
                             <constraint firstItem="3kI-0c-KLa" firstAttribute="bottom" secondItem="zXA-4X-kIS" secondAttribute="bottom" constant="124" id="mzD-iD-V68"/>
                             <constraint firstItem="zXA-4X-kIS" firstAttribute="leading" secondItem="3kI-0c-KLa" secondAttribute="leading" constant="45" id="stc-i8-xoO"/>
                             <constraint firstItem="3kI-0c-KLa" firstAttribute="trailing" secondItem="zXA-4X-kIS" secondAttribute="trailing" constant="44" id="vg1-pK-CqL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3kI-0c-KLa"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Luck Cocktail" image="trevoPink" selectedImage="trevoRed" id="QwB-1O-Th6">
+                        <color key="badgeColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="kVd-By-UIE"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="image" destination="jUn-Ce-KVt" id="ds2-J8-uzY"/>
                         <outlet property="text" destination="zXA-4X-kIS" id="mB7-zk-rMT"/>
@@ -54,8 +59,26 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="131.91964285714286"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YP6-mT-MON">
+            <objects>
+                <navigationController id="Mxp-T9-nga" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ugq-2Z-8kh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Qbu-nj-aUl" kind="relationship" relationship="rootViewController" id="pR6-sS-MOz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ad-Zy-Luj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="132"/>
+        </scene>
     </scenes>
     <resources>
         <image name="coquetel" width="137" height="167"/>
+        <image name="trevoPink" width="22" height="26"/>
+        <image name="trevoRed" width="22" height="26"/>
     </resources>
 </document>

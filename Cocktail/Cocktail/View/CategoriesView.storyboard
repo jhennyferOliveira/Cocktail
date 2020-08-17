@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wUd-oB-DYb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QMN-E4-VwM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -42,12 +42,15 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kF-je-APh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="152" y="160"/>
+            <point key="canvasLocation" x="762" y="159"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Categories-->
         <scene sceneID="Nv4-ae-rNC">
             <objects>
                 <navigationController id="wUd-oB-DYb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Categories" image="coquetelPink" selectedImage="coquetelRed" id="f8m-9J-DbI">
+                        <color key="badgeColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pyH-6y-uni">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -59,7 +62,61 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMn-GJ-tC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-722" y="159"/>
+            <point key="canvasLocation" x="25" y="159"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xVP-QB-MtU">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QMN-E4-VwM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="onj-Mr-mIY">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wUd-oB-DYb" kind="relationship" relationship="viewControllers" id="W67-WF-WwC"/>
+                        <segue destination="LVe-IS-y5L" kind="relationship" relationship="viewControllers" id="San-On-D9h"/>
+                        <segue destination="vo4-sw-Bxv" kind="relationship" relationship="viewControllers" id="uTM-AO-kFq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JNn-sb-4Uu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-723.1884057971015" y="158.70535714285714"/>
+        </scene>
+        <!--LuckCocktailView-->
+        <scene sceneID="60e-vg-hUr">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LuckCocktail" storyboardName="LuckCocktailView" id="LVe-IS-y5L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Luck Cocktail" image="trevoPink" selectedImage="trevoRed" id="nvP-QS-n8b">
+                        <color key="badgeColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dV8-8k-Xbf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-923" y="635"/>
+        </scene>
+        <!--TableViewFavoritesV-->
+        <scene sceneID="mVU-tY-eCf">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Favorite" storyboardName="TableViewFavoritesV" id="vo4-sw-Bxv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heartPink" selectedImage="heartRed" id="Thg-tP-XEK">
+                        <color key="badgeColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZE8-IR-WhF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-562" y="635"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.62153390900000005" green="0.24301515430000001" blue="0.27130694560000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+    <resources>
+        <image name="coquetelPink" width="25" height="29"/>
+        <image name="coquetelRed" width="23" height="29"/>
+        <image name="heartPink" width="25" height="24"/>
+        <image name="heartRed" width="25" height="24"/>
+        <image name="trevoPink" width="22" height="26"/>
+        <image name="trevoRed" width="22" height="26"/>
+    </resources>
 </document>
