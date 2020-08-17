@@ -1,15 +1,15 @@
 //
-//  TableViewCocktails.swift
+//  FavoriteController.swift
 //  Cocktail
 //
-//  Created by Jhennyfer Rodrigues de Oliveira on 13/08/20.
+//  Created by Jhennyfer Rodrigues de Oliveira on 15/08/20.
 //  Copyright © 2020 Jhennyfer Rodrigues de Oliveira. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class TableViewCocktails: UITableViewController {
+class FavoriteController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarApearence()
@@ -18,7 +18,7 @@ class TableViewCocktails: UITableViewController {
     // MARK: - Table view data source
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCocktails: [String] = []
-    let cellIdentifier = "CellIdentifier"
+    let cellIdentifier = "favoriteCell"
     var cocktails = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana",
                      "Pear", "Kiwi"]
     var isSearchBarEmpty: Bool {
@@ -39,7 +39,18 @@ class TableViewCocktails: UITableViewController {
         } else {
             return UITableViewCell.EditingStyle.delete
         }
-}    
+    }
+    // MARK: - swipe to delete
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            cocktails.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
     // MARK: - return the number of filtered results to fill the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
@@ -50,14 +61,14 @@ class TableViewCocktails: UITableViewController {
     // MARK: - shows the full table view or the search results if user is searching
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        if let cellUnwrapped = cell as? TableViewCell {
+        if let cellUnwrapped = cell as? CellFavorite {
             var cocktail: String
             if isFiltering {
                 cocktail = filteredCocktails[indexPath.row]
             } else {
                 cocktail = cocktails[indexPath.row]
             }
-            cellUnwrapped.cocktailImage.image = #imageLiteral(resourceName: "Cocktail")
+            cellUnwrapped.cocktailImage.image = #imageLiteral(resourceName: "cocoa")
             cellUnwrapped.cocktailName.text = cocktail
         }
         return cell
@@ -76,19 +87,19 @@ class TableViewCocktails: UITableViewController {
                 self.navigationController?.pushViewController(next, animated: true)
     }
 }
-extension TableViewCocktails: UISearchResultsUpdating {
+extension FavoriteController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         filterContentForSearchText(searchBar.text!)
     }
 }
-private extension TableViewCocktails {
+private extension FavoriteController {
     private func navBarApearence() {
-        navigationItem.hidesBackButton = false
+        navigationItem.hidesBackButton = true
         navigationController?.navigationBar.prefersLargeTitles = true
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.backgroundColor = #colorLiteral(red: 1, green: 0.8289034963, blue: 0.4533876181, alpha: 1)
-        navigationItem.title = "Some Category"
+        navigationItem.title = "My Favorites"
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
     }
