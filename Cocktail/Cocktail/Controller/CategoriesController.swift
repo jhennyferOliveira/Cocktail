@@ -14,11 +14,13 @@ class CategoriesController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCell.nib(), forCellWithReuseIdentifier: CategoryCell.identifier())
-        navigationController?.navigationBar.prefersLargeTitles = false
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.backgroundColor = #colorLiteral(red: 1, green: 0.8289034963, blue: 0.4533876181, alpha: 1)
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationItem.title = "Categories"
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
