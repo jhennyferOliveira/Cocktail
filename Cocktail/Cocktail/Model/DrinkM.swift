@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+struct Drinks: Codable {
+    let drinks: [DrinkM]
+}
+struct DrinkM: Codable {
+    let strDrink: String
+    let strDrinkThumb: String
+    let idDrink: String
+    init(strDrink: String, strDrinkThumb: String, idDrink: String) {
+        self.strDrinkThumb = strDrinkThumb
+        self.strDrink = strDrink
+        self.idDrink = idDrink
+    }
+}
