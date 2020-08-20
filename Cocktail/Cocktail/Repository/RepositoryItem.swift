@@ -7,3 +7,7 @@
 //
 
 import Foundation
+protocol RepositoryItem: class, Codable {
+    var identifier: UUID { get }
+    init()
+}
