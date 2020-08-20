@@ -11,6 +11,9 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class CategoriesController: UICollectionViewController {
+    let cardTitle: [String] = ["Ordinary Drink", "Cocktail", "Cocoa", "Shot",
+                               "Liqueur", "Beer", "Non Alcoholic"]
+    let cardImage: [UIImage] = [ #imageLiteral(resourceName: "commonDrinks"), #imageLiteral(resourceName: "Cocktail"), #imageLiteral(resourceName: "cocoa"), #imageLiteral(resourceName: "shot"), #imageLiteral(resourceName: "licor"), #imageLiteral(resourceName: "beer"), #imageLiteral(resourceName: "nonAlcoholic")]
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCell.nib(), forCellWithReuseIdentifier: CategoryCell.identifier())
@@ -29,20 +32,21 @@ class CategoriesController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 8
+        return cardTitle.count
     }
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier(), for: indexPath)
         if let unwrappedCell = cell as? CategoryCell {
-            unwrappedCell.config(label: "categ", image: #imageLiteral(resourceName: "nonAlcoholic"))
+            unwrappedCell.config(label: cardTitle[indexPath.item], image: cardImage[indexPath.item])
         }
         return cell
     }
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { 
         let storyboard = UIStoryboard(name: "TableViewCocktailsView", bundle: nil)
         let nextStoryboard = storyboard.instantiateViewController(withIdentifier: "TableViewCocktailsView")
-        if let nextStoryboardUnwrapped = nextStoryboard as? UITableViewController {
+        if let nextStoryboardUnwrapped = nextStoryboard as? TableViewCocktails {
+            nextStoryboardUnwrapped.category = cardTitle[indexPath.row]
             self.navigationController?.pushViewController(nextStoryboardUnwrapped, animated: true)
         }
 
