@@ -17,10 +17,20 @@ class RecipeController: UIViewController {
     @IBOutlet weak var ingredientText: UILabel!
     @IBOutlet weak var directionText: UILabel!
     @IBOutlet weak var image: UIImageView!
+    var glassTextInit = ""
+    var ingredientTextInit = ""
+    var directionTextInit = ""
+    var imageInit = #imageLiteral(resourceName: "Cocktail")
+    var drinkName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         navBarApearence()
+        navigationItem.title = drinkName
         updateRighBarButton(isFavourite: isFavourited)
+        glassText.text = glassTextInit
+        ingredientText.text = ingredientTextInit
+        directionText.text = directionTextInit
+        image.image = imageInit
         // Do any additional setup after loading the view.
     }
     // MARK: - the heart shape of the button will change to fill
