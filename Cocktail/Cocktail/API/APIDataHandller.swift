@@ -30,7 +30,6 @@ class APIDataHandler {
        }
        return finalIngredients
    }
-   
    func filterItemsFromRecipe(recipe: Recipe) -> RecipeM {
        let completeRecipe = RecipeM()
        var ingredients: [String: String] = [:]
@@ -55,7 +54,6 @@ class APIDataHandler {
                    }
                }
            }
-           
        }
        completeRecipe.ingredients = orderDictionaryValues(dict: ingredients)
        completeRecipe.measures = orderDictionaryValues(dict: measures)
