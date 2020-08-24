@@ -11,56 +11,56 @@ import Foundation
 struct FileHelper {
     let manager = FileManager.default
     let mainPath  = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    //MARK: - Create a new directory on the documents by default, or on the choosen path
+    // MARK: - Create a new directory on the documents by default, or on the choosen path
     func createDirectory(with name: String, at path: String? = nil) {
         let contentPath = constructPath(named: name, from: path)
         if !directoryExists(with: name, at: path) {
             do {
                 try manager.createDirectory(at: contentPath, withIntermediateDirectories: true, attributes: nil)
-            } catch (let error) { print(error.localizedDescription) }
+            } catch let error { print(error.localizedDescription) }
         }
     }
-    //MARK: - Remove directory and all of it's contents
+    // MARK: - Remove directory and all of it's contents
     func removeDirectory(named: String, at path: String? = nil) -> Bool {
         let dirPath = constructPath(named: named, from: path)
         do {
             try manager.removeItem(at: dirPath)
             return !manager.fileExists(atPath: dirPath.path)
-        } catch (let error) {
+        } catch let error {
             print(error.localizedDescription)
             return false
         }
     }
-    //MARK: - Check if the directory exists
+    // MARK: - Check if the directory exists
     func directoryExists(with name: String, at path: String? = nil) -> Bool {
         let dirPath = constructPath(named: name, from: path)
         var isDirectory = ObjCBool(true)
         return manager.fileExists(atPath: dirPath.path, isDirectory: &isDirectory) && isDirectory.boolValue
     }
-    //MARK: - Move file to another directory
-    func moveFileNewDirectory(at path: URL, directoryNamed: String){
+    // MARK: - Move file to another directory
+    func moveFileNewDirectory(at path: URL, directoryNamed: String) {
         createDirectory(with: directoryNamed)
         let list = path.pathComponents
         let newPath = constructPath(named: directoryNamed + "/" + list[list.count - 1])
-        do{
+        do {
             try FileManager.default.moveItem(at: path,
                                              to: newPath )
-        } catch{
+        } catch {
             print(error.localizedDescription)
         }
     }
-    func removeAllFilesFromDirectory(directoryName: String){
+    func removeAllFilesFromDirectory(directoryName: String) {
         let contents = contentsForDirectory(atPath: directoryName)
-        for content in contents{
+        for content in contents {
             let path = constructPath(named: directoryName + "/" + content)
-            do{
+            do {
                 try manager.removeItem(at: path)
-            }catch{
+            } catch {
                 print(error.localizedDescription)
             }
         }
     }
-    //MARK: - Get the content of directory
+    // MARK: - Get the content of directory
     func contentsForDirectory(atPath path: String) -> [String] {
         let contentPath = constructPath(named: path)
         let itens = try? manager.contentsOfDirectory(atPath: contentPath.path)
@@ -85,7 +85,7 @@ struct FileHelper {
         do {
             try manager.removeItem(at: contentPath)
             return !manager.fileExists(atPath: contentPath.path)
-        } catch (let error) {
+        } catch let error {
             print(error.localizedDescription)
             return false
         }
@@ -96,7 +96,7 @@ struct FileHelper {
         do {
             try data.write(to: contentPath)
             return true
-        } catch (let error) {
+        } catch let error {
             print(error.localizedDescription)
             return false
         }
