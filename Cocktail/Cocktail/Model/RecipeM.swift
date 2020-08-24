@@ -8,28 +8,29 @@
 
 import Foundation
 
-class RecipeM: Codable {
-    var image: String = ""
-    var glass: String = ""
-    var title: String = ""
+class RecipeM: Codable, RepositoryItem {
+    var image: String
+    var glass: String
+    var title: String
     var ingredients: [String] = []
     var measures: [String] = []
-    var directions: String = ""
-    var category: String = ""
-    let idDrink: String = ""
-    init(image: String, title: String, ingredients: [String], directions: String,
-         category: String, idDrink: String, measures: [String], glass: String) {
-        self.image = image
-        self.title = title
-        self.ingredients = ingredients
-        self.directions = directions
-        self.category = category
-        self.measures = measures
-        self.glass = glass
+    var directions: String
+    var category: String
+    let idDrink: String
+    let identifier: UUID
+    required init() {
+        self.identifier = UUID()
+        self.image = ""
+        self.title = ""
+        self.ingredients = []
+        self.directions = ""
+        self.category = ""
+        self.measures = []
+        self.glass = ""
+        self.idDrink = ""
     }
-    init() {}
 }
 
 struct Recipe: Codable {
-       let drinks: [[String: String?]]
-   }
+    let drinks: [[String: String?]]
+}

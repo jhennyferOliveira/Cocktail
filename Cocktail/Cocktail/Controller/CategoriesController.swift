@@ -12,8 +12,8 @@ private let reuseIdentifier = "Cell"
 
 class CategoriesController: UICollectionViewController {
     let cardTitle: [String] = ["Ordinary Drink", "Cocktail", "Cocoa", "Shot",
-                               "Liqueur", "Beer", "Non Alcoholic"]
-    let cardImage: [UIImage] = [ #imageLiteral(resourceName: "commonDrinks"), #imageLiteral(resourceName: "Cocktail"), #imageLiteral(resourceName: "cocoa"), #imageLiteral(resourceName: "shot"), #imageLiteral(resourceName: "licor"), #imageLiteral(resourceName: "beer"), #imageLiteral(resourceName: "nonAlcoholic")]
+                                "Beer", "Non Alcoholic"]
+    let cardImage: [UIImage] = [ #imageLiteral(resourceName: "commonDrinks"), #imageLiteral(resourceName: "Cocktail"), #imageLiteral(resourceName: "cocoa"), #imageLiteral(resourceName: "shot"), #imageLiteral(resourceName: "beer"), #imageLiteral(resourceName: "nonAlcoholic")]
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(CategoryCell.nib(), forCellWithReuseIdentifier: CategoryCell.identifier())
@@ -42,7 +42,8 @@ class CategoriesController: UICollectionViewController {
         }
         return cell
     }
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { 
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath) { 
         let storyboard = UIStoryboard(name: "TableViewCocktailsView", bundle: nil)
         let nextStoryboard = storyboard.instantiateViewController(withIdentifier: "TableViewCocktailsView")
         if let nextStoryboardUnwrapped = nextStoryboard as? TableViewCocktails {

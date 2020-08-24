@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="38" width="414" height="858"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7f-oy-8jb" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="858"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="687.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcg-DW-fc6">
                                                 <rect key="frame" x="24" y="295" width="109" height="24"/>
@@ -31,7 +31,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-55-HqN">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-55-HqN">
                                                 <rect key="frame" x="24" y="327" width="370" height="22.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="370" id="R4Z-2F-JeW"/>
@@ -46,7 +46,7 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3e-a8-gxs">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3e-a8-gxs">
                                                 <rect key="frame" x="24" y="405.5" width="370" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="370" id="6aA-iw-oQd"/>
@@ -63,13 +63,13 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cocktail" translatesAutoresizingMaskIntoConstraints="NO" id="6VP-se-fqm">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white" translatesAutoresizingMaskIntoConstraints="NO" id="6VP-se-fqm">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="263"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="263" id="R8Z-gh-mlf"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-tl-Kyu">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-tl-Kyu">
                                                 <rect key="frame" x="24" y="482.5" width="370" height="105"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="370" id="JQf-5O-Gly"/>
@@ -115,6 +115,7 @@
                                             <constraint firstItem="fDJ-55-HqN" firstAttribute="leading" secondItem="c7f-oy-8jb" secondAttribute="leading" constant="24" id="8vA-5u-oDN"/>
                                             <constraint firstItem="ZfA-Hc-qIG" firstAttribute="leading" secondItem="c7f-oy-8jb" secondAttribute="leading" constant="24" id="Ffe-cZ-pfC"/>
                                             <constraint firstAttribute="trailing" secondItem="o3e-a8-gxs" secondAttribute="trailing" constant="20" id="H0b-b8-mYZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="eBP-tl-Kyu" secondAttribute="bottom" constant="100" id="HD4-bp-Dun"/>
                                             <constraint firstItem="Hcg-DW-fc6" firstAttribute="leading" secondItem="c7f-oy-8jb" secondAttribute="leading" constant="24" id="Kv1-GS-aWg"/>
                                             <constraint firstItem="eBP-tl-Kyu" firstAttribute="top" secondItem="Afw-vL-ZOo" secondAttribute="bottom" constant="8" id="PNk-KN-blb"/>
                                             <constraint firstAttribute="trailing" secondItem="Afw-vL-ZOo" secondAttribute="trailing" constant="223" id="QCB-Eh-JeE"/>
@@ -175,6 +176,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cocktail" width="1920" height="1277"/>
+        <image name="white" width="200" height="200"/>
     </resources>
 </document>

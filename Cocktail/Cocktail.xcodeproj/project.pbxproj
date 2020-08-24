@@ -21,6 +21,10 @@
 		EF1D791724E42EEA00B77AB2 /* CocktailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D791624E42EEA00B77AB2 /* CocktailTests.swift */; };
 		EF1D792224E42EEA00B77AB2 /* CocktailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1D792124E42EEA00B77AB2 /* CocktailUITests.swift */; };
 		EF1E5F0F24EEB2F5005DE21A /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E5F0E24EEB2F5005DE21A /* FileHelper.swift */; };
+		EF1E5F1224EEB7D4005DE21A /* RepositoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E5F1124EEB7D4005DE21A /* RepositoryItem.swift */; };
+		EF1E5F1424EEBAE2005DE21A /* RepositoryMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E5F1324EEBAE2005DE21A /* RepositoryMethods.swift */; };
+		EF1E5F1624EEBC72005DE21A /* RepositoryRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E5F1524EEBC72005DE21A /* RepositoryRecipe.swift */; };
+		EF1E5F1924F052ED005DE21A /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E5F1824F052ED005DE21A /* ImageHandler.swift */; };
 		EF6B6A4F24E8980800D4E8CA /* TableViewFavoritesV.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6B6A4E24E8980800D4E8CA /* TableViewFavoritesV.storyboard */; };
 		EF6B6A5124E8989A00D4E8CA /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B6A5024E8989A00D4E8CA /* FavoriteController.swift */; };
 		EF6B6A5324EA2ACF00D4E8CA /* CellFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6B6A5224EA2ACF00D4E8CA /* CellFavorite.swift */; };
@@ -74,6 +78,10 @@
 		EF1D792124E42EEA00B77AB2 /* CocktailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailUITests.swift; sourceTree = "<group>"; };
 		EF1D792324E42EEA00B77AB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF1E5F0E24EEB2F5005DE21A /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		EF1E5F1124EEB7D4005DE21A /* RepositoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryItem.swift; sourceTree = "<group>"; };
+		EF1E5F1324EEBAE2005DE21A /* RepositoryMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMethods.swift; sourceTree = "<group>"; };
+		EF1E5F1524EEBC72005DE21A /* RepositoryRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryRecipe.swift; sourceTree = "<group>"; };
+		EF1E5F1824F052ED005DE21A /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
 		EF6B6A4E24E8980800D4E8CA /* TableViewFavoritesV.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewFavoritesV.storyboard; sourceTree = "<group>"; };
 		EF6B6A5024E8989A00D4E8CA /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		EF6B6A5224EA2ACF00D4E8CA /* CellFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellFavorite.swift; sourceTree = "<group>"; };
@@ -137,6 +145,8 @@
 		EF1D78FE24E42EE900B77AB2 /* Cocktail */ = {
 			isa = PBXGroup;
 			children = (
+				EF1E5F1724F052DC005DE21A /* ImageHandler */,
+				EF1E5F1024EEB7BC005DE21A /* Repository */,
 				EF1E5F0D24EEB2A3005DE21A /* FileHelper */,
 				EF6B6A5B24EAC84300D4E8CA /* API */,
 				EF6B6A5424EABB5E00D4E8CA /* Model */,
@@ -177,6 +187,24 @@
 				EF1E5F0E24EEB2F5005DE21A /* FileHelper.swift */,
 			);
 			path = FileHelper;
+			sourceTree = "<group>";
+		};
+		EF1E5F1024EEB7BC005DE21A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E5F1124EEB7D4005DE21A /* RepositoryItem.swift */,
+				EF1E5F1324EEBAE2005DE21A /* RepositoryMethods.swift */,
+				EF1E5F1524EEBC72005DE21A /* RepositoryRecipe.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EF1E5F1724F052DC005DE21A /* ImageHandler */ = {
+			isa = PBXGroup;
+			children = (
+				EF1E5F1824F052ED005DE21A /* ImageHandler.swift */,
+			);
+			path = ImageHandler;
 			sourceTree = "<group>";
 		};
 		EF6B6A5424EABB5E00D4E8CA /* Model */ = {
@@ -387,14 +415,18 @@
 				EF6B6A5624EABB9A00D4E8CA /* CategoryM.swift in Sources */,
 				EF1D790024E42EE900B77AB2 /* AppDelegate.swift in Sources */,
 				EF6B6A5824EAC68600D4E8CA /* DrinkM.swift in Sources */,
+				EF1E5F1424EEBAE2005DE21A /* RepositoryMethods.swift in Sources */,
 				EF6B6A5324EA2ACF00D4E8CA /* CellFavorite.swift in Sources */,
 				EF1D790224E42EE900B77AB2 /* SceneDelegate.swift in Sources */,
 				EF0BAB0424E5E431008412DC /* TableViewCocktails.swift in Sources */,
 				EF0BAB0224E5E3ED008412DC /* TableViewCell.swift in Sources */,
 				EF6B6A5124E8989A00D4E8CA /* FavoriteController.swift in Sources */,
+				EF1E5F1924F052ED005DE21A /* ImageHandler.swift in Sources */,
 				EF0BAB0B24E6CD81008412DC /* RecipeController.swift in Sources */,
 				EFDC905E24E84ED800992AC0 /* LuckCocktailController.swift in Sources */,
 				EF1E5F0F24EEB2F5005DE21A /* FileHelper.swift in Sources */,
+				EF1E5F1624EEBC72005DE21A /* RepositoryRecipe.swift in Sources */,
+				EF1E5F1224EEB7D4005DE21A /* RepositoryItem.swift in Sources */,
 				EF6B6A5A24EAC6F300D4E8CA /* RecipeM.swift in Sources */,
 				EF6B6A5D24EAC86B00D4E8CA /* APIDataHandller.swift in Sources */,
 				EFED089F24E58676000CEA99 /* CategoriesController.swift in Sources */,

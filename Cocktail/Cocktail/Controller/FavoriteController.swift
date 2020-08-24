@@ -15,12 +15,21 @@ class FavoriteController: UITableViewController {
         navBarApearence()
         setSearchBar()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        recipes = recipeRepository.readAllItems()
+        tableView.reloadData()
+    }
+
     // MARK: - Table view data source
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredCocktails: [String] = []
+    var filteredCocktails: [RecipeM] = []
     let cellIdentifier = "favoriteCell"
-    var cocktails = ["Apple", "Pineapple", "Orange", "Blackberry", "Banana",
-                     "Pear", "Kiwi"]
+    let imageLoader = ImageLoader()
+    let apiDataHandler = APIDataHandler()
+    private var recipeRepository: RecipeRepository {
+        RecipeRepository()
+    }
+    var recipes: [RecipeM] = []
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
@@ -46,7 +55,8 @@ class FavoriteController: UITableViewController {
                             forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            cocktails.remove(at: indexPath.row)
+            recipeRepository.delete(id: recipes[indexPath.row].identifier)
+            recipes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
@@ -56,35 +66,42 @@ class FavoriteController: UITableViewController {
         if isFiltering {
             return filteredCocktails.count
         }
-        return cocktails.count
+        return recipes.count
     }
     // MARK: - shows the full table view or the search results if user is searching
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         if let cellUnwrapped = cell as? CellFavorite {
-            var cocktail: String
+            var cocktail: RecipeM
             if isFiltering {
                 cocktail = filteredCocktails[indexPath.row]
             } else {
-                cocktail = cocktails[indexPath.row]
+                cocktail = recipes[indexPath.row]
             }
-            cellUnwrapped.cocktailImage.image = #imageLiteral(resourceName: "cocoa")
-            cellUnwrapped.cocktailName.text = cocktail
+            imageLoader.obtainImageWithPath(imagePath: cocktail.image) { (image) in
+                               cellUnwrapped.cocktailImage.image = image
+                         }
+            cellUnwrapped.cocktailName.text = cocktail.title
         }
         return cell
     }
     // MARK: - search for the inserted text and reload tableview data showing the results
     func filterContentForSearchText(_ searchText: String) {
-        filteredCocktails = cocktails.filter { cocktail -> Bool in
-            return cocktail.lowercased().contains(searchText.lowercased())
+        filteredCocktails = recipes.filter { cocktail -> Bool in
+            return cocktail.title.lowercased().contains(searchText.lowercased())
         }
         tableView.reloadData()
     }
     // MARK: - when user selects a row he will be redirected to another screen
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                let storyboard = UIStoryboard(name: "RecipeView", bundle: nil)
-                let next = storyboard.instantiateViewController(withIdentifier: "RecipeView") as UIViewController
-                self.navigationController?.pushViewController(next, animated: true)
+        let storyboard = UIStoryboard(name: "RecipeView", bundle: nil)
+        let next = storyboard.instantiateViewController(withIdentifier: "RecipeView") as? RecipeController
+        let selectedRecipe = recipes[indexPath.row]
+        next?.drinkUUID = selectedRecipe.identifier
+        next?.previous = .favorites
+        if let next = next {
+            self.navigationController?.pushViewController(next, animated: true)
+        }
     }
 }
 extension FavoriteController: UISearchResultsUpdating {
