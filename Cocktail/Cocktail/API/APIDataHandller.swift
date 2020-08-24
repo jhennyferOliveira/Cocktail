@@ -31,13 +31,18 @@ class APIDataHandler {
         } else {
             contador = measures.count
         }
-        for ident in 0...contador - 1 {
-            finalIngredients += measures[ident] + " " + ingredients[ident]
-            if ident < contador - 1 {
-                finalIngredients += "\n"
+        if contador <= 0 {
+            return ""
+        } else {
+            for ident in 0...contador - 1 {
+                finalIngredients += measures[ident] + " " + ingredients[ident]
+                if ident < contador - 1 {
+                    finalIngredients += "\n"
+                }
             }
+            return finalIngredients
         }
-        return finalIngredients
+        
     }
     // get only the important data that come from json
     func filterItemsFromRecipe(recipe: Recipe) -> RecipeM {
