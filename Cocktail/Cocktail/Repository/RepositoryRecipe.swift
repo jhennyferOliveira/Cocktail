@@ -7,3 +7,8 @@
 //
 
 import Foundation
+// MARK: - Repository Methods are used indirectly from Plant Repository
+class RecipeRepository: RepositoryMethods {
+    typealias Item = RecipeM
+    var items: [RecipeM] = []
+}
