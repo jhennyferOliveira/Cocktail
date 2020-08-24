@@ -14,18 +14,23 @@ class TableViewCocktails: UITableViewController {
         super.viewDidLoad()
         navBarApearence()
         setSearchBar()
+        getItemsFromCategory(categoryName: category)
     }
     // MARK: - Table view data source
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCocktails: [DrinkM] = []
     let cellIdentifier = "CellIdentifier"
-    var cocktails: [DrinkM]?
     var recipe: Recipe?
     var category: String = ""
+    var cocktails: [DrinkM]?
     var completeRecipe: RecipeM  = RecipeM()
     var apiDataHandler = APIDataHandler()
+    var imageLoader = ImageLoader()
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
+    }
+    private var recipeRepository: RecipeRepository {
+        RecipeRepository()
     }
     var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty
@@ -34,21 +39,11 @@ class TableViewCocktails: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    // MARK: - blocks delete action if the user is searching
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt
-        indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if isFiltering {
-            return UITableViewCell.EditingStyle.none
-        } else {
-            return UITableViewCell.EditingStyle.delete
-        }
-    }
     // MARK: - return the number of filtered results to fill the table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering {
             return filteredCocktails.count
         }
-        filterCategories(categoryName: category)
         if let cocktails = cocktails {
             return cocktails.count
         }
@@ -57,7 +52,7 @@ class TableViewCocktails: UITableViewController {
     // MARK: - shows the full table view or the search results if user is searching
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        if let cellUnwrapped = cell as? TableViewCell {
+        if let cell = cell as? TableViewCell {
             var cocktailHelper: DrinkM = DrinkM(strDrink: "someDrink", strDrinkThumb: "12", idDrink: "1")
             if isFiltering {
                 cocktailHelper = filteredCocktails[indexPath.row]
@@ -66,14 +61,10 @@ class TableViewCocktails: UITableViewController {
                     cocktailHelper = cocktails[indexPath.row]
                 }
             }
-            cellUnwrapped.cocktailName.text = cocktailHelper.strDrink
-            let url = URL(string: cocktailHelper.strDrinkThumb)
-            if let url = url {
-                let data = try? Data(contentsOf: url)
-                if let data = data {
-                    cellUnwrapped.cocktailImage.image = UIImage(data: data)
-                }
-            }
+            imageLoader.obtainImageWithPath(imagePath: cocktailHelper.strDrinkThumb) { (image) in
+                    cell.cocktailImage.image = image
+              }
+            cell.cocktailName.text = cocktailHelper.strDrink
         }
         return cell
     }
@@ -90,26 +81,10 @@ class TableViewCocktails: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cocktails = cocktails {
             let selectedCocktail = cocktails[indexPath.row]
-            getDrink(drinkId: selectedCocktail.idDrink)
             let storyboard = UIStoryboard(name: "RecipeView", bundle: nil)
             let next = storyboard.instantiateViewController(withIdentifier: "RecipeView") as? RecipeController
-            if let recipe = recipe {
-                completeRecipe = apiDataHandler.filterItemsFromRecipe(recipe: recipe)
-                let finalIngredients = apiDataHandler.mergeIngredientsAndMeasures(ingredients: completeRecipe.ingredients, measures: completeRecipe.measures)
-                next?.ingredientTextInit = finalIngredients
-                next?.glassTextInit = completeRecipe.glass
-                next?.drinkName = completeRecipe.title
-                next?.directionTextInit = completeRecipe.directions
-                let url = URL(string: completeRecipe.image)
-                if let url = url {
-                    let data = try? Data(contentsOf: url)
-                    if let data = data {
-                        if let myImage = UIImage(data: data) {
-                            next?.imageInit = myImage
-                        }
-                    }
-                }
-            }
+            next?.drinkId = selectedCocktail.idDrink
+            next?.previous = .tableView
             if let next = next {
                 self.navigationController?.pushViewController(next, animated: true)
             }
@@ -141,35 +116,20 @@ private extension TableViewCocktails {
         navigationController?.navigationItem.hidesSearchBarWhenScrolling = true
         UITextField.appearance().backgroundColor = #colorLiteral(red: 0.5411764706, green: 0.1490196078, blue: 0.01960784314, alpha: 0.1193011558)
     }
-    //get drink by id
-    private func getDrink(drinkId: String) {
-        let path = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkId
-        if let url: URL = URL(string: path) {
-            URLSession.shared.dataTask(with: url) { data, _, error in
-                if let data = data {
-                    do {
-                        let recipe = try JSONDecoder().decode(Recipe.self, from: data)
-                        DispatchQueue.main.async {
-                            self.recipe = recipe
-                        }
-                    } catch let error {
-                        print(error)
-                    }
-                }
-            }.resume()
-        }
-    }
-    private func filterCategories(categoryName: String) {
+    // to populate the table view
+    private func getItemsFromCategory(categoryName: String) {
         var newCategName = ""
         if categoryName.contains(" ") {
             let categName = categoryName.split(separator: " ")
             newCategName = categName[0] + "_" + categName[1]
+        } else {
+            newCategName = categoryName
         }
         var path = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?"
         if newCategName == "Non_Alcoholic"{
             path +=  "a=" + newCategName
         } else {
-            path += "c=" + categoryName
+            path += "c=" + newCategName
         }
         if let url: URL = URL(string: path) {
             URLSession.shared.dataTask(with: url) { data, _, error in
@@ -187,5 +147,4 @@ private extension TableViewCocktails {
             }.resume()
         }
     }
-    
 }
